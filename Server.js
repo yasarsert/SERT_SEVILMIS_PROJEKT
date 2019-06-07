@@ -16,7 +16,7 @@ server.on('request', (request, response) => {
 
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname + '/public/site2.html'));
+    res.sendFile(path.join(__dirname + '/index.html'));
 })
 
 
