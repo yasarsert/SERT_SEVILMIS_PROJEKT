@@ -10,25 +10,28 @@
   <body>
 
     <header>
-        <h1>Wetter API</h1>
+        <h1>Weather API</h1>
     </header>
 
     <nav>
         <ul>
             <li><a>Home</a></li>
-            <li><a>Hilfe</a></li>
-            <li><a>Kontakt</a></li>
+            <li><a>Help</a></li>
+            <li><a>Contact</a></li>
         </ul>
     </nav>
 
     <section>
-        <h2>Aktuelles Wetter</h2>
-
-        Ausgabe von Daten
+        <h2>Current Weather</h2>
+        
+        <label for="site-search">Enter Country or City</label>
+            <p><input type="search" name="q"></p>
+            <button>Search</button>
 
         <table style="width:100%">
             <tr>
               <th>Country</th>
+              <th>City</th>
               <th>Sunrise</th> 
               <th>Sunset</th>
               <th>Temperature</th>
@@ -39,11 +42,12 @@
             </tr>
             <tr>
               <td>Austria</td>
+              <td>Vienna</td>
               <td>4:53</td> 
               <td>20:51</td>
-              <th>22</th>
-              <th>30</th>
-              <th>18</th>
+              <td>22</td>
+              <td>30</td>
+              <td>18</td>
               <td>13 km/h</td>
               <td>1013 hPa</td>
             </tr>

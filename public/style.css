@@ -47,7 +47,8 @@ section h2{
 }
 
 section table{
-    margin: 10px;
+    margin: 20px;
+    text-align: center;
 }
 
 footer{
@@ -55,6 +56,7 @@ footer{
     color: white;
     text-align: center;
     position: fixed;
+    font-size: 18px;
     left: 0;
     bottom: 0;
     width: 100%;
