@@ -38,30 +38,27 @@ async function getWeather(cities, callback) {
 
 app.get('/getdata', function(req, res) {
 
-    console.log("Request Received")
-
-    var city = res.query.city
+    var city = req.query.city
     if(city === undefined){
         req.send({city: "city missing"})
     }
-
     unirest.get("https://community-open-weather-map.p.rapidapi.com/weather?q="+city)
     .header("X-RapidAPI-Host", "community-open-weather-map.p.rapidapi.com")
     .header("X-RapidAPI-Key", "e38e017ce7msh83f40b6b300233dp1b2b8ejsna4989e4b1e7d")
     .end(function (result) {
         var weather = {
-            country : result.body.sys.country,
-            city : city,
-            temperature : result.body.main.temp,
-            description : result.body.weather.description,
-            sunrise: result.body.sys.sunrise,
-            sunset: result.body.sys.sunset,
-            max: result.body.main.temp_min,
-            min: result.body.main.temp_max,
-            wind: result.body.wind.speed,
-            pressure: result.body.main.pressure
+            "country" : result.body.sys.country,
+            "city" : city,
+            "temperature" : result.body.main.temp,
+            "description" : result.body.weather.description,
+            "sunrise": result.body.sys.sunrise,
+            "sunset": result.body.sys.sunset,
+            "max": result.body.main.temp_min,
+            "min": result.body.main.temp_max,
+            "wind": result.body.wind.speed,
+            "pressure": result.body.main.pressure
         };
-        res.write(weather)
+        req.send(weather)
     });
 });
 
