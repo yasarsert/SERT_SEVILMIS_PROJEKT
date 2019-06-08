@@ -64,7 +64,7 @@ app.get('/getdata', function(req, res) {
 
 app.get("/client", (req, res) => {
     
-    unirest.get("https://community-open-weather-map.p.rapidapi.com/find?type=link%2C+accurate&units=imperial%2C+metric&q=" + req)
+    unirest.get(req)
         .header("X-RapidAPI-Host", "community-open-weather-map.p.rapidapi.com")
         .header("X-RapidAPI-Key", "e38e017ce7msh83f40b6b300233dp1b2b8ejsna4989e4b1e7d")
         .end(function (result) {

@@ -38,7 +38,7 @@ function getData()
         document.getElementById("min").innerHTML=data.min
         document.getElementById("Sunrise").innerHTML=data.sunrise
         document.getElementById("Sunset").innerHTML=data.sunset
-        document.getElementById("Wind").innerHTML=data.wind.speed
+        document.getElementById("Wind").innerHTML=data.wind
         document.getElementById("Pressure").innerHTML=data.pressure
       },
       error: function( jqXhr, textStatus, errorThrown ){
@@ -51,14 +51,14 @@ function getData()
         <h2>Current Weather</h2>
         
         <label for="site-search">Enter Country or City</label>
-            <p><input id="cityss" class="input" name="cityss" type="text" placeholder="City_Name"></p>
+            <p><input id="cityss" class="input" name="cityss" type="text" placeholder="City or Land"></p>
             <button id="searchbtn" onclick="getData()">Search</button>
 
         <table style="width:100%">
             <tr>
               <th>Country</th>
               <th>City</th> 
-              <th>Temperature in Fahrenheit</th>
+              <th>Temperature in Kelvin</th>
               <th>max</th>
               <th>min</th> 
               <th>Sunrise</th>
