@@ -34,6 +34,12 @@ function getData()
         document.getElementById("country").innerHTML=data.country
         document.getElementById("city").innerHTML=data.city
         document.getElementById("Temperature").innerHTML=data.temperature
+        document.getElementById("Sunrise").innerHTML=data.max
+        document.getElementById("Sunrise").innerHTML=data.min
+        document.getElementById("Sunrise").innerHTML=data.sunrise
+        document.getElementById("Sunrise").innerHTML=data.sunset
+        document.getElementById("Sunrise").innerHTML=data.wind.speed
+        document.getElementById("Sunrise").innerHTML=data.pressure
       },
       error: function( jqXhr, textStatus, errorThrown ){
         document.getElementById("city").innerHTML="Error"
@@ -53,14 +59,23 @@ function getData()
               <th>Country</th>
               <th>City</th> 
               <th>Temperature in Fahrenheit</th>
-              
+              <th>max</th>
+              <th>min</th> 
+              <th>Sunrise</th>
+              <th>Sunset</th>
+              <th>Wind</th>
+              <th>Pressure</th>
             </tr>
             <tr>
-              <td id="country">Austria</td>
-              <td id="city">Vienna</td>
-              
-              <td id="Temperature">22</td>
-             
+              <td id="country"></td>
+              <td id="city"></td>
+              <td id="Temperature"></td> 
+              <td id="max"></td>
+              <td id="min"></td>
+              <td id="Sunrise"></td>
+              <td id="Sunset"></td>
+              <td id="Wind"></td>
+              <td id="Pressure"></td>
             </tr>
         </table>
     </section>
