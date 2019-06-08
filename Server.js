@@ -35,23 +35,34 @@ async function getWeather(cities, callback) {
 
     callback(undefined,weather)
 }
+
 app.get('/getdata', function(req, res) {
 
-    unirest.get("https://community-open-weather-map.p.rapidapi.com/weather?callback=test&id=2172797&units=%22metric%22+or+%22imperial%22&mode=xml%2C+html&q=London%2Cuk")
-    .header("X-RapidAPI-Host", "community-open-weather-map.p.rapidapi.com")
-    .header("X-RapidAPI-Key", "e38e017ce7msh83f40b6b300233dp1b2b8ejsna4989e4b1e7d")
-    .end(function (result) {
-        console.log(result.status, result.headers, result.body);
-    });
+    console.log("Request Received")
 
     var city = res.query.city
     if(city === undefined){
         req.send({city: "city missing"})
     }
-    getWeather(city, (err, data)=>{
-        req.send(data)
-    })
 
+    unirest.get("https://community-open-weather-map.p.rapidapi.com/weather?q="+city)
+    .header("X-RapidAPI-Host", "community-open-weather-map.p.rapidapi.com")
+    .header("X-RapidAPI-Key", "e38e017ce7msh83f40b6b300233dp1b2b8ejsna4989e4b1e7d")
+    .end(function (result) {
+        var weather = {
+            country : result.body.sys.country,
+            city : city,
+            temperature : result.body.main.temp,
+            description : result.body.weather.description,
+            sunrise: result.body.sys.sunrise,
+            sunset: result.body.sys.sunset,
+            max: result.body.main.temp_min,
+            min: result.body.main.temp_max,
+            wind: result.body.wind.speed,
+            pressure: result.body.main.pressure
+        };
+        res.write(weather)
+    });
 });
 
 app.get("/client", (req, res) => {
