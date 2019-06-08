@@ -31,9 +31,9 @@ function getData()
       type: "get",
       contentType: 'application/json',
       success: function( data, textStatus, jQxhr ){
-        document.getElementById("country").innerHTML=data.city
+        document.getElementById("country").innerHTML=data.country
         document.getElementById("city").innerHTML=data.city
-        document.getElementById("Temperature").innerHTML=data.city
+        document.getElementById("Temperature").innerHTML=data.temperature
       },
       error: function( jqXhr, textStatus, errorThrown ){
         document.getElementById("city").innerHTML="Error"

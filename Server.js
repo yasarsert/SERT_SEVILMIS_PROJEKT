@@ -40,7 +40,7 @@ app.get('/getdata', function(req, res) {
 
     var city = req.query.city
     if(city === undefined){
-        req.send({city: "city missing"})
+        res.send({city: "city missing"})
     }
     unirest.get("https://community-open-weather-map.p.rapidapi.com/weather?q="+city)
     .header("X-RapidAPI-Host", "community-open-weather-map.p.rapidapi.com")
@@ -58,7 +58,7 @@ app.get('/getdata', function(req, res) {
             "wind": result.body.wind.speed,
             "pressure": result.body.main.pressure
         };
-        req.send(weather)
+        res.send(weather)
     });
 });
 
